@@ -15,12 +15,6 @@
 
     integer,parameter,public :: wp = real64  !! default real kind
 
-    ! variable types:
-    integer,parameter,public :: type_string  = 1  !! a character string variable
-    integer,parameter,public :: type_double  = 2  !! a `real(wp)` variable
-    integer,parameter,public :: type_integer = 3  !! an `integer` variable
-    integer,parameter,public :: type_logical = 4  !! a logical variable
-
     public :: parse_namelist
 
     contains
@@ -72,10 +66,6 @@
     integer :: var_type         !! type of a JSON variable
     integer :: n_children       !! number of elements in an array of namelists
     character(len=256) :: istr  !! for integer to string conversion
-    integer :: itype            !! type of the value in a line
-    integer :: int_val          !! integer value
-    logical :: logical_val      !! logical value
-    real(wp) :: real_val        !! double value
     logical :: found            !! to check if namelist with same name already processed
     integer :: len_val          !! length of value string
     logical :: eof              !! end of file flag when reading namelist file
@@ -120,6 +110,7 @@
                     status = 1 ! parsing a namelist
                     namelist_name = lowercase_string(line(2:))
                     ! does it exist already?
+                    nullify(p)
                     call json%get(p_namelist,namelist_name,p,found)
                     if (found) then
                         ! we need to turn it into an array if
@@ -179,32 +170,21 @@
                         len_val = len(val)
                         if ((val(1:1)=='"' .and. val(len_val:len_val)=='"') .or. &
                             (val(1:1)=="'" .and. val(len_val:len_val)=="'")) then
+
                             if (len_val>2) then
                                 val = val(2:len_val-1)
                             else
                                 val = ''
                             end if
+                            ! since we know it is a string:
+                            call json%create_string(p,val,'')
+                            call json%add_by_path(p_namelist,path,p)
+
+                        else
+                            ! infer the variable type and
+                            ! add it to the JSON structure:
+                            call add_variable(json,p_namelist,path,val)
                         end if
-
-                        ! have to determine what kind of value it is:
-                        call infer_variable_type(val,itype)
-
-                        ! add the variable to the json structure:
-                        select case (itype)
-                        case(type_string)
-                            call json%add_by_path(p_namelist,path,val)
-                        case(type_double)
-                            call to_real(val,real_val,status_ok)
-                            call json%add_by_path(p_namelist,path,real_val)
-                        case(type_integer)
-                            call to_integer(val,int_val,status_ok)
-                            call json%add_by_path(p_namelist,path,int_val)
-                        case(type_logical)
-                            call to_logical(val,logical_val,status_ok)
-                            call json%add_by_path(p_namelist,path,logical_val)
-                        case default
-                            call line_parse_error(iline,line,'invalid variable type')
-                        end select
 
                     end if
 
@@ -296,47 +276,49 @@
 
 !*****************************************************************************************
 !>
-!  Infers the variable type, assuming the following precedence:
-!
-!  * integer
-!  * double
-!  * logical
-!  * character
+!  Infers the variable type and adds it to the namelist JSON structure.
 
-    pure subroutine infer_variable_type(str,itype)
+    subroutine add_variable(json,p_namelist,path,str)
 
     implicit none
 
-    character(len=*),intent(in) :: str
-    integer,intent(out) :: itype
+    type(json_core),intent(inout) :: json
+    type(json_value),pointer      :: p_namelist
+    character(len=*),intent(in)   :: path
+    character(len=*),intent(in)   :: str
 
     real(wp) :: rval      !! a real value
     integer  :: ival      !! an integer value
     logical  :: lval      !! a logical value
     logical  :: status_ok !! status flag
+    type(json_value),pointer :: p !! for the value
 
     call to_integer(str,ival,status_ok)
     if (status_ok) then
-        itype = type_integer
+        call json%create_integer(p,ival,'')
+        call json%add_by_path(p_namelist,path,p)
         return
     end if
 
     call to_real(str,rval,status_ok)
     if (status_ok) then
-        itype = type_double
+        call json%create_double(p,rval,'')
+        call json%add_by_path(p_namelist,path,p)
         return
     end if
 
     call to_logical(str,lval,status_ok)
     if (status_ok) then
-        itype = type_logical
+        call json%create_logical(p,lval,'')
+        call json%add_by_path(p_namelist,path,p)
         return
     end if
 
     ! default is string:
-    itype = type_string
+    call json%create_string(p,str,'')
+    call json%add_by_path(p_namelist,path,p)
 
-    end subroutine infer_variable_type
+    end subroutine add_variable
 !*****************************************************************************************
 
 !*****************************************************************************************

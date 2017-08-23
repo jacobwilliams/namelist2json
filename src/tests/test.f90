@@ -10,7 +10,7 @@
 
     implicit none
 
-    character(len=*),parameter :: filename = 'test.ideck'
+    character(len=*),parameter :: filename     = 'test.nml'
     character(len=*),parameter :: filename_out = 'test.json'
     type(json_value),pointer :: p_namelist
     logical :: status_ok
@@ -22,6 +22,8 @@
         call json%initialize(compress_vectors=.true.)
         call json%print(p_namelist,filename_out)
         call json%print(p_namelist,output_unit)
+    else
+        write(*,*) 'error'
     end if
 
     call json%destroy(p_namelist)
