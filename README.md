@@ -2,6 +2,25 @@
 
 A basic module for parsing Fortran namelists and converting them to a JSON data structure. It is written in modern Fortran.
 
+Note that the parser is very simple and only works on a subset of valid namelist files. It may be expanded in the future.
+
+The namelist must be formatted like so:
+
+```fortran
+ &NAMELIST_NAME
+ var1%A = 3,
+ var1%B = true,
+ var1%C(1) = '1',
+ var1%C(2) = '1',
+ var1%C(3) = '1',
+ var1%E = 'SNOPTA',
+ var1%F%G = 0,
+ var1%H(7)%I = 2.0,
+ /
+```
+
+Each variable must be on only one line. The value to the right of the `=` sign must be an integer, real, logical, or string. Multiple namelines per file are allowed.
+
 ## Building
 
 A [FoBiS](https://github.com/szaghi/FoBiS) configuration file (`namelist2json.fobis`) is provided that can build the library and examples. Use the `mode` flag to indicate what to build. For example:
