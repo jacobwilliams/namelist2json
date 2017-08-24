@@ -57,4 +57,4 @@ This project requires [json-fortran](https://github.com/jacobwilliams/json-fortr
 
 ## License
 
-This library is released under a permission BSD-3 license.
+This library is released under a permissive BSD-3 license.
