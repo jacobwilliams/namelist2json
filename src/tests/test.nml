@@ -1,0 +1,11 @@
+ &NAMELIST_NAME
+ var1%A = 3,
+ var1%B = true,
+ var1%C(1) = '1',
+ var1%C(2) = '1',
+ var1%C(3) = '1',
+ var1%E = 'a string',
+ var1%F%G = 0,
+ var1%H(2)%I = 2.0,
+ var2%J%K = F
+ /
