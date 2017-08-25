@@ -1,4 +1,4 @@
-## Description
+### Description
 
 A basic module for parsing Fortran namelists and converting them to a JSON data structure. It is written in modern Fortran.
 
@@ -50,7 +50,11 @@ The example above would be converted into the JSON file:
 }
 ```
 
-## Building
+### Third-Party requirements
+
+This project requires [json-fortran](https://github.com/jacobwilliams/json-fortran), which is included in `src` as a git submodule.
+
+### Building
 
 A [FoBiS](https://github.com/szaghi/FoBiS) configuration file (`namelist2json.fobis`) is provided that can build the library and examples. Use the `mode` flag to indicate what to build. For example:
 
@@ -74,20 +78,26 @@ The full set of modes are:
 * `tests-intel`
 * `tests-intel-debug`
 
-## Third-Party requirements
+### Documentation
 
-This project requires [json-fortran](https://github.com/jacobwilliams/json-fortran), which is included in `src` as a git submodule.
+To build the documentation, use:
 
-## Development
+```
+FoBiS.py rule --execute makedoc -f namelist2json.fobis
+```
+
+Note that this requires that [Ford](https://github.com/cmacmackin/ford) be installed.
+
+### Development
 
 This project is hosted on GitHub at: https://github.com/jacobwilliams/namelist2json
 
-## See also
+### License
+
+This library is released under a permissive BSD-3 license.
+
+### See also
 
  * To do a similar thing using Python, you could use [f90nml](https://github.com/marshallward/f90nml).
  * [JSON-Fortran](https://github.com/jacobwilliams/json-fortran)
  * [fortran-csv-module](https://github.com/jacobwilliams/fortran-csv-module)
-
-## License
-
-This library is released under a permissive BSD-3 license.
