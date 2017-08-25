@@ -13,13 +13,42 @@ The namelist must be formatted like so:
  var1%C(1) = '1',
  var1%C(2) = '1',
  var1%C(3) = '1',
- var1%E = 'SNOPTA',
+ var1%E = 'a string',
  var1%F%G = 0,
- var1%H(7)%I = 2.0,
+ var1%H(2)%I = 2.0,
+ var2%J%K = F
  /
 ```
 
 Each variable must be on only one line. The value to the right of the `=` sign must be an integer, real, logical, or string. Multiple namelines per file are allowed.
+
+The example above would be converted into the JSON file:
+```javascript
+{
+  "namelist_name": {
+    "var1": {
+      "a": 3,
+      "b": true,
+      "c": ["1", "1", "1"],
+      "e": "a string",
+      "f": {
+        "g": 0
+      },
+      "h": [
+        null,
+        {
+          "i": 0.2E+1
+        }
+      ]
+    },
+    "var2": {
+      "j": {
+        "k": false
+      }
+    }
+  }
+}
+```
 
 ## Building
 
@@ -45,9 +74,13 @@ The full set of modes are:
 * `tests-intel`
 * `tests-intel-debug`
 
-## Third-Party Requirements
+## Third-Party requirements
 
 This project requires [json-fortran](https://github.com/jacobwilliams/json-fortran), which is included in `src` as a git submodule.
+
+## Development
+
+This project is hosted on GitHub at: https://github.com/jacobwilliams/namelist2json
 
 ## See also
 
