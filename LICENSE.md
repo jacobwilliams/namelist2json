@@ -1,7 +1,9 @@
-namelist2json
-<https://github.com/jacobwilliams/namelist2json>
+## namelist2json License
+
+https://github.com/jacobwilliams/namelist2json
 
 Copyright (c) 2017, Jacob Williams
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
