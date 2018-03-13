@@ -274,7 +274,7 @@
     end subroutine read_line_from_file
 !*******************************************************************************
 
-!*****************************************************************************************
+!*******************************************************************************
 !>
 !  Infers the variable type and adds it to the namelist JSON structure.
 
@@ -319,9 +319,9 @@
     call json%add_by_path(p_namelist,path,p)
 
     end subroutine add_variable
-!*****************************************************************************************
+!*******************************************************************************
 
-!*****************************************************************************************
+!*******************************************************************************
 !>
 !  Convert a string to a `real(wp)`
 
@@ -344,9 +344,9 @@
     end if
 
     end subroutine to_real
-!*****************************************************************************************
+!*******************************************************************************
 
-!*****************************************************************************************
+!*******************************************************************************
 !>
 !  Convert a string to an `integer`
 
@@ -371,9 +371,9 @@
     end if
 
     end subroutine to_integer
-!*****************************************************************************************
+!*******************************************************************************
 
-!*****************************************************************************************
+!*******************************************************************************
 !>
 !  Convert a string to a `logical`
 !
@@ -413,29 +413,7 @@
     end if
 
     end subroutine to_logical
-!*****************************************************************************************
-
-!*****************************************************************************************
-!>
-!  Return the lowercase version of the character.
-
-    pure elemental function lowercase_character(c) result(c_lower)
-
-    implicit none
-
-    character(len=1),intent(in) :: c
-    character(len=1)            :: c_lower
-
-    integer :: i  !! index in uppercase array
-
-    character(len=*),parameter :: upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' !! uppercase characters
-    character(len=*),parameter :: lower = 'abcdefghijklmnopqrstuvwxyz' !! lowercase characters
-
-    i = index(upper,c)
-    c_lower = merge(lower(i:i),c,i>0)
-
-    end function lowercase_character
-!*****************************************************************************************
+!*******************************************************************************
 
 !*******************************************************************************
 !>
@@ -449,16 +427,19 @@
     character(len=(len(str)))   :: s_lower  !! lowercase version of the string
 
     integer :: i  !! counter
-    integer :: n  !! length of input string
+    integer :: j  !! index of uppercase character
 
-    s_lower = ''
-    n = len_trim(str)
+    character(len=*),parameter :: upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        !! uppercase characters
+    character(len=*),parameter :: lower = 'abcdefghijklmnopqrstuvwxyz'
+        !! lowercase characters
 
-    if (n>0) then
-        do concurrent (i=1:n)
-            s_lower(i:i) = lowercase_character(str(i:i))
-        end do
-    end if
+    s_lower = str
+
+    do i = 1, len_trim(str)
+        j = index(upper,s_lower(i:i))
+        if (j>0) s_lower(i:i) = lower(j:j)
+    end do
 
     end function lowercase_string
 !*******************************************************************************

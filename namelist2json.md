@@ -17,6 +17,7 @@ creation_date: %Y-%m-%d %H:%M %z
 exclude_dir: ./src/json-fortran/src/
              ./src/json-fortran/src/tests/
              ./src/json-fortran/src/tests/introspection/
+             ./src/json-fortran/visual_studio/jsonfortrantest
 extra_mods: json_module:https://github.com/jacobwilliams/json-fortran
             iso_fortran_env:https://software.intel.com/en-us/node/678626
 

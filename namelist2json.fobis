@@ -17,6 +17,7 @@ $DEBUG_GNU   = -O0 -g3 -Warray-bounds -Wcharacter-truncation -Wline-truncation -
 $CSTATIC_INT = -c -std15
 $DEBUG_INT   = -O0 -debug all -check all -warn all -extend-source 132 -traceback -gen-interfaces -fpe-all=0 -fp-stack-check -fstack-protector-all -ftrapuv -no-ftz -std15
 $EXCLUDE_DIRS = ./src/json-fortran/src/tests/
+                ./src/json-fortran/visual_studio
 
 # modes templates
 [template-static]
