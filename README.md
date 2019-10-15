@@ -99,5 +99,6 @@ This library is released under a permissive BSD-3 license.
 ### See also
 
  * To do a similar thing using Python, you could use [f90nml](https://github.com/marshallward/f90nml).
+ * [fast-namelist](https://github.com/jacobwilliams/fast-namelist)
  * [JSON-Fortran](https://github.com/jacobwilliams/json-fortran)
  * [fortran-csv-module](https://github.com/jacobwilliams/fortran-csv-module)
