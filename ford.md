@@ -10,16 +10,14 @@ predocmark: <
 docmark_alt:
 docmark: !
 display: public
+         private
+         protected
 source: true
 graph: true
 print_creation_date: true
 creation_date: %Y-%m-%d %H:%M %z
-exclude_dir: ./src/json-fortran/src/
-             ./src/json-fortran/src/tests/
-             ./src/json-fortran/src/tests/introspection/
-             ./src/json-fortran/visual_studio/jsonfortrantest
-extra_mods: json_module:https://github.com/jacobwilliams/json-fortran
-            iso_fortran_env:https://software.intel.com/en-us/node/678626
+extra_mods: json_module:https://jacobwilliams.github.io/json-fortran/
+            iso_fortran_env:https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html
 
 {!README.md!}
 
