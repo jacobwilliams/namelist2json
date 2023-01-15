@@ -50,43 +50,41 @@ The example above would be converted into the JSON file:
 }
 ```
 
+## Compiling
+
+A `fmp.toml` file is provided for compiling namelist2json with the [Fortran Package Manager](https://github.com/fortran-lang/fpm). For example, to build:
+
+```
+fpm build --profile release
+```
+
+To run the unit tests:
+
+```
+fpm test
+```
+
+To use `namelist2json` within your fpm project, add the following to your `fpm.toml` file:
+```toml
+[dependencies]
+namelist2json = { git="https://github.com/jacobwilliams/namelist2json.git" }
+```
+
+or, to use a specific version:
+```toml
+[dependencies]
+namelist2json = { git="https://github.com/jacobwilliams/namelist2json.git", tag = "1.0.0"  }
+```
+
+To generate the documentation using [ford](https://github.com/Fortran-FOSS-Programmers/ford), run: `ford ford.md`
+
 ### Third-Party requirements
 
-This project requires [json-fortran](https://github.com/jacobwilliams/json-fortran), which is included in `src` as a git submodule.
+This project requires [json-fortran](https://github.com/jacobwilliams/json-fortran), which will be downloaded by `FPM`.
 
-### Building
+## Documentation
 
-A [FoBiS](https://github.com/szaghi/FoBiS) configuration file (`namelist2json.fobis`) is provided that can build the library and examples. Use the `mode` flag to indicate what to build. For example:
-
-* To build all the examples using gfortran: `FoBiS.py build -f namelist2json.fobis -mode tests-gnu`
-* To build all the examples using ifort: `FoBiS.py build -f namelist2json.fobis -mode tests-intel`
-* To build a static library using gfortran: `FoBiS.py build -f namelist2json.fobis -mode static-gnu`
-* To build a static library using ifort: `FoBiS.py build -f namelist2json.fobis -mode static-intel`
-
-The full set of modes are:
-
-* `static-gnu`
-* `static-gnu-debug`
-* `static-intel`
-* `static-intel-debug`
-* `shared-gnu`
-* `shared-gnu-debug`
-* `shared-intel`
-* `shared-intel-debug`
-* `tests-gnu`
-* `tests-gnu-debug`
-* `tests-intel`
-* `tests-intel-debug`
-
-### Documentation
-
-To build the documentation, use:
-
-```
-FoBiS.py rule --execute makedoc -f namelist2json.fobis
-```
-
-Note that this requires that [Ford](https://github.com/cmacmackin/ford) be installed.
+The latest API documentation for the `master` branch can be found [here](https://jacobwilliams.github.io/namelist2json/). This was generated from the source code using [FORD](https://github.com/Fortran-FOSS-Programmers/ford).
 
 ### Development
 

@@ -1,3 +1,0 @@
-[submodule "src/json-fortran"]
-	path = src/json-fortran
-	url = https://github.com/jacobwilliams/json-fortran.git

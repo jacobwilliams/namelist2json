@@ -10,7 +10,7 @@
 
     implicit none
 
-    character(len=*),parameter :: filename     = '../src/tests/test.nml'
+    character(len=*),parameter :: filename     = 'test/test.nml'
     character(len=*),parameter :: filename_out = 'test.json'
     type(json_value),pointer :: p_namelist
     logical :: status_ok
@@ -23,7 +23,7 @@
         call json%print(p_namelist,filename_out)
         call json%print(p_namelist,output_unit)
     else
-        write(*,*) 'error'
+        error stop 'error parsing namelist'
     end if
 
     call json%destroy(p_namelist)

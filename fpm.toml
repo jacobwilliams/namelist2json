@@ -1,0 +1,23 @@
+name = "namelist2json"
+version = "1.0.0"
+license = "BSD-3-Clause"
+author = "Jacob Williams"
+maintainer = "https://github.com/jacobwilliams"
+copyright = "Copyright (c) 2022, Jacob Williams"
+description = "Converting a Fortran namelist to JSON"
+homepage = "https://github.com/jacobwilliams/namelist2json"
+keywords = ["I/O"]
+
+[library]
+source-dir = "src"
+
+[dependencies]
+json-fortran = { git="https://github.com/jacobwilliams/json-fortran.git", tag = "8.3.0" }
+
+[install]
+library = true
+
+[build]
+auto-executables = false
+auto-examples = false
+auto-tests = true

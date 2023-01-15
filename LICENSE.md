@@ -2,7 +2,7 @@
 
 https://github.com/jacobwilliams/namelist2json
 
-Copyright (c) 2017, Jacob Williams
+Copyright (c) 2017-2022, Jacob Williams
 
 All rights reserved.
 
