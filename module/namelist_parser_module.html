@@ -138,7 +138,19 @@
   
   
   
-  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#funcs-0">Functions</a>
+        </h3>
+      </div>
+      <div id="funcs-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-lowercase_string">lowercase_string</a>
+        </div>
+      </div>
+    </div>
+
       <div class="panel panel-primary">
       <div class="panel-heading text-left">
         <h3 class="panel-title">
@@ -148,6 +160,11 @@
       <div id="subs-0" class="panel-collapse collapse">
         <div class="list-group">
             <a class="list-group-item" href="../module/namelist_parser_module.html#proc-parse_namelist">parse_namelist</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-read_line_from_file">read_line_from_file</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-add_variable">add_variable</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-to_real">to_real</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-to_integer">to_integer</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-to_logical">to_logical</a>
         </div>
       </div>
     </div>
@@ -173,8 +190,8 @@
       <ul class="list-group">
           <li class="list-group-item">
             <ul class="list-inline">
-                <li><a href="https://github.com/jacobwilliams/json-fortran">json_module</a></li>
-                <li><a href="https://software.intel.com/en-us/node/678626">iso_fortran_env</a></li>
+                <li><a href="https://jacobwilliams.github.io/json-fortran/">json_module</a></li>
+                <li><a href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html">iso_fortran_env</a></li>
             </ul>
           </li>
           <li class="list-group-item">
@@ -198,7 +215,7 @@
 <!-- json_module -->
 <g id="module~~namelist_parser_module~~UsesGraph_node2" class="node">
 <title>json_module</title>
-<g id="a_module~~namelist_parser_module~~UsesGraph_node2"><a xlink:href="https://github.com/jacobwilliams/json-fortran" xlink:title="json_module">
+<g id="a_module~~namelist_parser_module~~UsesGraph_node2"><a xlink:href="https://jacobwilliams.github.io/json-fortran/" xlink:title="json_module">
 <polygon fill="#337ab7" stroke="#337ab7" points="87,-66 7,-66 7,-42 87,-42 87,-66"/>
 <text text-anchor="middle" x="47" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">json_module</text>
 </a>
@@ -213,7 +230,7 @@
 <!-- iso_fortran_env -->
 <g id="module~~namelist_parser_module~~UsesGraph_node3" class="node">
 <title>iso_fortran_env</title>
-<g id="a_module~~namelist_parser_module~~UsesGraph_node3"><a xlink:href="https://software.intel.com/en-us/node/678626" xlink:title="iso_fortran_env">
+<g id="a_module~~namelist_parser_module~~UsesGraph_node3"><a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
 <polygon fill="#337ab7" stroke="#337ab7" points="94,-24 0,-24 0,0 94,0 94,-24"/>
 <text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
 </a>
@@ -317,7 +334,19 @@
   
   
   
-  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#funcs-1">Functions</a>
+        </h3>
+      </div>
+      <div id="funcs-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-lowercase_string">lowercase_string</a>
+        </div>
+      </div>
+    </div>
+
       <div class="panel panel-primary">
       <div class="panel-heading text-left">
         <h3 class="panel-title">
@@ -327,6 +356,11 @@
       <div id="subs-1" class="panel-collapse collapse">
         <div class="list-group">
             <a class="list-group-item" href="../module/namelist_parser_module.html#proc-parse_namelist">parse_namelist</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-read_line_from_file">read_line_from_file</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-add_variable">add_variable</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-to_real">to_real</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-to_integer">to_integer</a>
+            <a class="list-group-item" href="../module/namelist_parser_module.html#proc-to_logical">to_logical</a>
         </div>
       </div>
     </div>
@@ -382,6 +416,56 @@ parameter
 
     
     
+ 
+    <section>
+    <h2>Functions</h2>
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-lowercase_string"></span><h3>private pure elemental function <a href='../proc/lowercase_string.html'>lowercase_string</a>(str) result(s_lower)  
+</h3></div>
+    <div class="panel-body">
+          
+  <p>Returns lowercase version of the string.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+<p>input string</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character</small>
+    </h4>
+    <p>lowercase version of the string</p>
+
+    </div>
+  </div>
+
+    </section>
+    <br>
 
     <section>
     <h2>Subroutines</h2>
@@ -455,6 +539,371 @@ parameter
     </div>
   </div>
 
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-read_line_from_file"></span><h3>private  subroutine <a href='../proc/read_line_from_file.html'>read_line_from_file</a>(iunit, line, eof)  
+</h3></div>
+    <div class="panel-body">
+          
+  <p>Read a single line from a file.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iunit</strong></td>
+            <td>
+<p>the file unit (assumed to be opened)</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=:),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>line</strong></td>
+            <td>
+<p>the line read</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>eof</strong></td>
+            <td>
+<p>if end of file reached</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-add_variable"></span><h3>private  subroutine <a href='../proc/add_variable.html'>add_variable</a>(json, p_namelist, path, str)  
+</h3></div>
+    <div class="panel-body">
+          
+  <p>Infers the variable type and adds it to the namelist JSON structure.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              type(json_core),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>json</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              type(json_value),
+            </td>
+<td></td>
+              <td></td>            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>p_namelist</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>path</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-to_real"></span><h3>private pure elemental subroutine <a href='../proc/to_real.html'>to_real</a>(str, val, status_ok)  
+</h3></div>
+    <div class="panel-body">
+          
+  <p>Convert a string to a <code>real(wp)</code></p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=wp),
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>val</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>status_ok</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-to_integer"></span><h3>private pure elemental subroutine <a href='../proc/to_integer.html'>to_integer</a>(str, val, status_ok)  
+</h3></div>
+    <div class="panel-body">
+          
+  <p>Convert a string to an <code>integer</code></p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>val</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>status_ok</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-to_logical"></span><h3>private pure elemental subroutine <a href='../proc/to_logical.html'>to_logical</a>(str, val, status_ok)  
+</h3></div>
+    <div class="panel-body">
+          
+  <p>Convert a string to a <code>logical</code></p><a href="../proc/to_logical.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>val</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>status_ok</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
     </section>
     <br>
 
@@ -475,7 +924,7 @@ parameter
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-01-15 14:31            </p>
+ on 2023-01-15 14:39            </p>
         </div>
       </div>
       <br>
